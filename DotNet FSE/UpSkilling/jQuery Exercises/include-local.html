@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Exercises — Local Loader</title>
+    <style>body{font-family:Arial,Helvetica,sans-serif;padding:1rem} .box{width:80px;height:80px;background:#f0f0f0;border:1px solid #ccc;display:inline-block;margin:0.5rem;vertical-align:middle;text-align:center;line-height:80px} #colorBox{width:120px;height:80px;border:1px solid #aaa;margin-top:0.5rem}</style>
+  </head>
+  <body>
+    <h1>jQuery Exercises (Local loader)</h1>
+    <p id="p1">Paragraph one.</p>
+    <p id="p2">Paragraph two (will be hidden).</p>
+    <button id="btnHideP">Hide paragraph 2</button>
+
+    <hr>
+    <h2>Boxes (.box)</h2>
+    <div>
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+    </div>
+    <div>
+      <button id="hideBoxes">.hide()</button>
+      <button id="showBoxes">.show()</button>
+      <button id="fadeOut">.fadeOut()</button>
+      <button id="fadeIn">.fadeIn()</button>
+      <button id="toggleBoxes">.toggle()</button>
+      <button id="chain">Chain slideUp().delay().slideDown()</button>
+    </div>
+
+    <hr>
+    <h2>List Builder</h2>
+    <input id="itemInput" placeholder="New item">
+    <button id="addItem">Add</button>
+    <button id="removeAll">Remove All</button>
+    <ul id="items"></ul>
+
+    <hr>
+    <h2>Color Box</h2>
+    <button id="colorBtn">Make Red (click)</button>
+    <div id="colorBox">box</div>
+
+    <hr>
+    <h2>Mouse & Keyboard Events</h2>
+    <div id="mouseBox" style="padding:1rem;border:1px solid #ccc;display:inline-block">Hover or click me</div>
+    <div>
+      <input id="keyInput" placeholder="Type here and press keys">
+    </div>
+
+    <!-- Local loader: this simulates a locally-included script that loads jQuery (CDN fallback) and then exercises.js -->
+    <script src="vendor/jquery-local-loader.js"></script>
+  </body>
+</html>

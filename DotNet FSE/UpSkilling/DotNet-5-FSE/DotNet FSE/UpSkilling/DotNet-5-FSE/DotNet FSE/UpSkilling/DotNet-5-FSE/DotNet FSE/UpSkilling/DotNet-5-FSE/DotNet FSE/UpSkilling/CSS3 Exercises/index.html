@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS3 Exercises — Local Community Event Portal</title>
+    <!-- Google Font (using <link> as requested) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- External stylesheet -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- Embedded style: define body background (task requirement) -->
+    <style>
+      /* Embedded: body background with fallback color + image */
+      body {
+        background-color: #f0f6ff; /* fallback color */
+        background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=60');
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Inline style example: make this heading red (task 1) -->
+    <header id="mainHeader">
+      <h1 style="color:red;">Local Community Event Portal</h1>
+      <p class="lead">Find events, volunteer, and stay involved.</p>
+    </header>
+
+    <!-- Navigation (list styling demo) -->
+    <nav>
+      <ul class="navList">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <main id="home">
+      <section class="banner eventCard" id="hero">
+        <h2>Welcome to the portal</h2>
+        <p class="desc">Connecting neighbours with local happenings and initiatives.</p>
+        <a href="#events" class="cta-button">Explore Events</a>
+      </section>
+
+      <section id="events" class="container">
+        <h2>Upcoming Events</h2>
+        <div class="eventGrid">
+          <article class="eventCard">
+            <h3>Community Clean-up</h3>
+            <p class="meta">Saturday • 9:00 AM</p>
+            <p class="desc">Join neighbours to tidy the riverbank and plant native species.</p>
+          </article>
+          <article class="eventCard">
+            <h3>Farmers Market</h3>
+            <p class="meta">Sunday • 10:00 AM</p>
+            <p class="desc">Local produce, crafts, and live music.</p>
+          </article>
+          <article class="eventCard">
+            <h3>Outdoor Cinema</h3>
+            <p class="meta">Friday • 8:30 PM</p>
+            <p class="desc">Bring a blanket — family film night under the stars.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="news" class="container">
+        <h2>Community Bulletin</h2>
+        <div class="news">
+          <p>Short items and announcements displayed in two columns on wide screens.</p>
+          <p>Volunteer recruitment, lost & found, and quick updates appear here.</p>
+          <p>Council meeting minutes and planning updates are linked for transparency.</p>
+          <p>Subscribe to the newsletter to stay informed about upcoming activities.</p>
+        </div>
+      </section>
+
+      <section id="admin" class="container">
+        <h2>Events Admin</h2>
+        <table class="events-table">
+          <thead>
+            <tr><th>Event</th><th>Date</th><th>Attendees</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clean-up</td><td>Sat</td><td>24</td></tr>
+            <tr><td>Market</td><td>Sun</td><td>120</td></tr>
+            <tr><td>Cinema</td><td>Fri</td><td>80</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="contact" class="container">
+        <h2>Contact & Volunteer Form</h2>
+        <form class="volunteer-form">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name">
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com">
+
+          <label for="role">Preferred role</label>
+          <select id="role">
+            <option>Volunteer</option>
+            <option>Organizer</option>
+            <option>Sponsor</option>
+          </select>
+
+          <button class="cta-button" type="submit">Sign Up</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <p>&copy; Local Community</p>
+      <p><a href="#">Privacy</a> • <a href="#">Terms</a></p>
+    </footer>
+
+  </body>
+</html>

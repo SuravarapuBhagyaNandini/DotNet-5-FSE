@@ -1,0 +1,6 @@
+// custom.scss - import variables then Bootstrap (example)
+@import 'variables';
+// When using full Bootstrap source, import Bootstrap's entry point here, e.g.:
+// @import "~bootstrap/scss/bootstrap";
+
+body{background:#f8f9fa}

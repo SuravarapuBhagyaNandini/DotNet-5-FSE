@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <defs>
+    <linearGradient id="c1" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#9ad0ff"/>
+      <stop offset="100%" stop-color="#576b95"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#c1)"/>
+  <g opacity="0.14">
+    <rect x="20" y="40" width="280" height="110" rx="8" fill="#000"/>
+  </g>
+  <g>
+    <rect x="36" y="52" width="248" height="86" rx="6" fill="#f3f3f3" opacity="0.06"/>
+    <circle cx="270" cy="60" r="18" fill="#ffd166" opacity="0.14"/>
+  </g>
+  <text x="16" y="180" font-family="Verdana" font-size="18" fill="#10263a">Outdoor Cinema</text>
+</svg>

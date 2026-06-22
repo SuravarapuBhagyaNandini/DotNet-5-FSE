@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Exercises — Local Community Event Portal</title>
+    <style>
+      /* Internal CSS: welcome banner styling (task 3) */
+      #welcomeBanner { background: #0d6efd; color: white; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; }
+      .highlight { background: rgba(13,110,253,0.08); padding: 0.15rem 0.3rem; border-radius: 4px; }
+      .gallery-img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; cursor: pointer; display: block; }
+      .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
+      @media (max-width:800px){ .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width:480px){ .gallery-grid { grid-template-columns: 1fr; } }
+      figure { margin: 0; }
+      figcaption { margin-top: 0.5rem; font-size: 0.95rem; color: #333; text-align:center; }
+      .gallery-card { background:#fff; padding:0.6rem; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.06); display:flex; flex-direction:column; align-items:stretch; position:relative; overflow:hidden; }
+      .tile-badge { position:absolute; left:12px; top:12px; background:rgba(0,0,0,0.5); color:#fff; padding:6px 8px; border-radius:18px; font-size:14px; display:inline-flex; align-items:center; gap:6px; }
+      .tile-caption { position:absolute; left:0; right:0; bottom:0; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%); color:#fff; padding:8px 10px; text-align:center; font-weight:600; }
+      .gallery-card figure { margin:0; }
+      .gallery-card img { display:block; }
+      .enlarged { transform: scale(1.6); transition: transform 0.2s; z-index: 20; position: relative; }
+      /* Lightbox styles */
+      .lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 9999; visibility: hidden; opacity: 0; transition: opacity 0.2s; }
+      .lightbox-overlay.show { visibility: visible; opacity: 1; }
+      .lightbox-inner { max-width: 90vw; max-height: 90vh; text-align: center; color: #fff; }
+      .lightbox-img { max-width: 100%; max-height: 80vh; border-radius: 6px; box-shadow: 0 6px 24px rgba(0,0,0,0.6); }
+      .lightbox-caption { margin-top: 0.5rem; font-size: 1rem; }
+      .lightbox-close, .lightbox-nav { position: absolute; top: 12px; right: 16px; background: rgba(255,255,255,0.08); border: none; color: #fff; padding: 6px 10px; cursor: pointer; border-radius: 4px; }
+      .lightbox-nav { right: auto; left: 16px; }
+      .lightbox-controls { position: fixed; inset: 0; pointer-events: none; }
+      .lightbox-controls button { pointer-events: auto; }
+      table { width: 100%; border-collapse: collapse; }
+      td { text-align: center; padding: 0.5rem; }
+      .events-table { width:100%; border-collapse: collapse; margin-top: 0.75rem; }
+      .events-table th, .events-table td { border: 1px solid #ddd; padding: 0.5rem; }
+      .form-row { display:flex; gap:0.5rem; flex-wrap:wrap; }
+      label { display:block; margin-top:0.5rem; }
+      .small { font-size:0.9rem; color:#555; }
+      .notice { color: #0b5ed7; margin-top:0.5rem; }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="#home">Home</a> |
+      <a href="#events">Events</a> |
+      <a href="#contact">Contact</a> |
+      <a href="help.html" target="_blank">Help (open in new tab)</a>
+    </nav>
+
+    <!-- Main -->
+    <main>
+      <!-- Welcome Banner (id + internal CSS + inline span) -->
+      <div id="welcomeBanner">
+        <h1>Welcome back, <span class="highlight">Community Member</span></h1>
+        <p>Enjoy local events near you — <span style="color:red;font-weight:bold;">Special offer: free entry</span> for first-timers!</p>
+      </div>
+
+      <!-- Image Gallery in table layout (2 rows x 3 cols) -->
+      <section id="gallery">
+        <h2>Past Events Gallery</h2>
+        <div class="gallery-grid" aria-label="gallery grid">
+          <div class="gallery-card"><figure><img src="images/photo-clean-up.jpg" data-full="images/photo-clean-up.jpg" class="gallery-img" alt="Community clean-up" title="Community Clean-up"><span class="tile-badge">🧹 Clean-up</span><figcaption class="tile-caption">Clean-up</figcaption></figure></div>
+          <div class="gallery-card"><figure><img src="images/photo-market.jpg" data-full="images/photo-market.jpg" class="gallery-img" alt="Farmers market" title="Farmers Market"><span class="tile-badge">🧺 Market</span><figcaption class="tile-caption">Farmers Market</figcaption></figure></div>
+          <div class="gallery-card"><figure><img src="images/photo-cinema.jpg" data-full="images/photo-cinema.jpg" class="gallery-img" alt="Outdoor cinema" title="Outdoor Cinema"><span class="tile-badge">🎬 Cinema</span><figcaption class="tile-caption">Outdoor Cinema</figcaption></figure></div>
+          <div class="gallery-card"><figure><img src="images/photo-music.jpg" data-full="images/photo-music.jpg" class="gallery-img" alt="Live music" title="Live Music"><span class="tile-badge">🎵 Music</span><figcaption class="tile-caption">Live Music</figcaption></figure></div>
+          <div class="gallery-card"><figure><img src="images/photo-fair.jpg" data-full="images/photo-fair.jpg" class="gallery-img" alt="Community fair" title="Community Fair"><span class="tile-badge">🎪 Fair</span><figcaption class="tile-caption">Community Fair</figcaption></figure></div>
+          <div class="gallery-card"><figure><img src="images/photo-planting.jpg" data-full="images/photo-planting.jpg" class="gallery-img" alt="Tree planting" title="Tree Planting"><span class="tile-badge">🌳 Planting</span><figcaption class="tile-caption">Tree Planting</figcaption></figure></div>
+        </div>
+      </section>
+
+      <!-- Live Capture removed per user request (static local images used instead) -->
+
+      <!-- Events list and admin table -->
+      <section id="events">
+        <h2>Events</h2>
+        <table class="events-table">
+          <thead><tr><th>Event</th><th>Date</th><th>Location</th></tr></thead>
+          <tbody>
+            <tr><td>Community Clean-up</td><td>Sat 9am</td><td>Riverbank</td></tr>
+            <tr><td>Farmers Market</td><td>Sun 10am</td><td>Main Square</td></tr>
+            <tr><td>Outdoor Cinema</td><td>Fri 8pm</td><td>Park</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Registration Form -->
+      <section id="contact">
+        <h2>Register for an Event</h2>
+        <form id="regForm">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Full name" required autofocus>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+          <label for="phone">Phone (onblur validates)</label>
+          <input id="phone" name="phone" type="tel" placeholder="012-345-6789">
+
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date">
+
+          <label for="eventType">Event Type</label>
+          <select id="eventType" name="eventType">
+            <option value="cleanup">Clean-up</option>
+            <option value="market">Market</option>
+            <option value="cinema">Cinema</option>
+          </select>
+          <div class="small">Fee: <span id="fee">Free</span></div>
+
+          <label for="message">Message / Feedback</label>
+          <textarea id="message" name="message" rows="4" placeholder="Any notes..." ></textarea>
+          <div class="small">Characters: <span id="charCount">0</span></div>
+
+          <div class="form-row">
+            <button id="submitBtn" type="submit">Submit Registration</button>
+            <button id="clearPrefs" type="button">Clear Preferences</button>
+            <button id="findNearby" type="button">Find Nearby Events</button>
+          </div>
+
+          <output id="confirmation" name="confirmation" for="regForm"></output>
+        </form>
+      </section>
+
+      <!-- Video invite (oncanplay) -->
+      <section id="video">
+        <h2>Event Promo</h2>
+        <video id="promo" width="480" controls>
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div id="videoNotice" class="notice" aria-live="polite"></div>
+      </section>
+
+      <!-- Geolocation output -->
+      <section id="geo">
+        <h2>Find Nearby Events</h2>
+        <div id="coords" class="small"></div>
+        <div id="geoError" class="small" style="color:crimson"></div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p class="small">Use DevTools to inspect structure and console logs for debugging.</p>
+    </footer>
+
+    <script>
+      // JavaScript to handle events, validation, storage, and geolocation
+      (function(){
+        const form = document.getElementById('regForm');
+        const confirmation = document.getElementById('confirmation');
+        const submitBtn = document.getElementById('submitBtn');
+        const phone = document.getElementById('phone');
+        const eventType = document.getElementById('eventType');
+        const fee = document.getElementById('fee');
+        const msg = document.getElementById('message');
+        const charCount = document.getElementById('charCount');
+        const promo = document.getElementById('promo');
+        const videoNotice = document.getElementById('videoNotice');
+        const clearPrefs = document.getElementById('clearPrefs');
+        const findNearby = document.getElementById('findNearby');
+        const coordsOut = document.getElementById('coords');
+        const geoError = document.getElementById('geoError');
+        let formSubmitted = false;
+
+        // Restore saved preference
+        try {
+          const saved = localStorage.getItem('preferredEvent');
+          if (saved) { eventType.value = saved; updateFee(); }
+        } catch(e){ console.warn('localStorage not available', e); }
+
+        // Save preference on change
+        eventType.addEventListener('change', function(){
+          updateFee();
+          try { localStorage.setItem('preferredEvent', eventType.value); } catch(e){}
+        });
+
+        function updateFee(){
+          const map = {cleanup: 'Free', market: '$5', cinema: '$8'};
+          fee.textContent = map[eventType.value] || 'Free';
+          console.log('Fee updated to', fee.textContent);
+        }
+
+        // Phone validation on blur
+        phone.addEventListener('blur', function(){
+          const v = phone.value.trim();
+          if (v && !/^\d{3}-\d{3}-\d{4}$/.test(v)) {
+            alert('Phone must be in format 012-345-6789');
+            phone.focus();
+          }
+        });
+
+        // Char count in textarea
+        msg.addEventListener('keyup', function(e){ charCount.textContent = msg.value.length; });
+
+        // Image double-click to enlarge
+        document.querySelectorAll('.gallery-img').forEach(img => {
+          img.addEventListener('dblclick', function(){ img.classList.toggle('enlarged'); });
+        });
+
+        // Lightbox: supports dynamically added images
+        (function(){
+          let current = 0;
+          function getImgs(){ return Array.from(document.querySelectorAll('.gallery-img')); }
+
+          // create overlay elements
+          const overlay = document.createElement('div'); overlay.className = 'lightbox-overlay';
+          const inner = document.createElement('div'); inner.className = 'lightbox-inner';
+          const imgEl = document.createElement('img'); imgEl.className = 'lightbox-img';
+          const caption = document.createElement('div'); caption.className = 'lightbox-caption';
+          const closeBtn = document.createElement('button'); closeBtn.className = 'lightbox-close'; closeBtn.textContent = 'Close';
+          const prevBtn = document.createElement('button'); prevBtn.className = 'lightbox-nav'; prevBtn.textContent = '◀'; prevBtn.style.left = '16px'; prevBtn.style.top = '50%'; prevBtn.style.transform = 'translateY(-50%)';
+          const nextBtn = document.createElement('button'); nextBtn.className = 'lightbox-nav'; nextBtn.textContent = '▶'; nextBtn.style.right = '16px'; nextBtn.style.top = '50%'; nextBtn.style.transform = 'translateY(-50%)';
+
+          inner.appendChild(imgEl); inner.appendChild(caption);
+          overlay.appendChild(inner);
+          overlay.appendChild(closeBtn);
+          overlay.appendChild(prevBtn);
+          overlay.appendChild(nextBtn);
+          document.body.appendChild(overlay);
+
+          function show(index){
+            const imgs = getImgs();
+            const source = imgs[index];
+            if(!source) return;
+            current = index;
+            imgEl.src = source.dataset.full || source.src;
+            const fig = source.closest('figure');
+            const fc = fig ? fig.querySelector('figcaption') : null;
+            caption.textContent = fc ? fc.textContent : source.alt || '';
+            overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
+          }
+          function hide(){ overlay.classList.remove('show'); document.body.style.overflow = ''; }
+
+          // delegate click handler to gallery container
+          const gallery = document.getElementById('gallery');
+          gallery.addEventListener('click', function(e){
+            const target = e.target.closest('.gallery-img');
+            if (!target) return;
+            e.preventDefault();
+            const imgs = getImgs();
+            const index = imgs.indexOf(target);
+            if (index >= 0) show(index);
+          });
+
+          closeBtn.addEventListener('click', hide);
+          overlay.addEventListener('click', function(e){ if (e.target === overlay) hide(); });
+          prevBtn.addEventListener('click', function(e){ e.stopPropagation(); const imgs = getImgs(); show((current-1+imgs.length)%imgs.length); });
+          nextBtn.addEventListener('click', function(e){ e.stopPropagation(); const imgs = getImgs(); show((current+1)%imgs.length); });
+          document.addEventListener('keydown', function(e){ if(!overlay.classList.contains('show')) return; const imgs = getImgs(); if(e.key === 'Escape') hide(); if(e.key === 'ArrowLeft') show((current-1+imgs.length)%imgs.length); if(e.key === 'ArrowRight') show((current+1)%imgs.length); });
+        })();
+
+        
+
+        // Form submit handling
+        form.addEventListener('submit', function(ev){
+          ev.preventDefault();
+          const name = form.name.value.trim();
+          confirmation.textContent = `Thanks ${name || 'guest'} — registration received for ${eventType.options[eventType.selectedIndex].text}.`;
+          console.log('Form submitted', {name, email: form.email.value, event: eventType.value});
+          formSubmitted = true;
+        });
+
+        // Button click shows confirmation (onclick)
+        submitBtn.addEventListener('click', function(){ console.log('Submit button clicked'); });
+
+        // Video oncanplay
+        promo.addEventListener('canplay', function(){ videoNotice.textContent = 'Video ready to play'; });
+
+        // Warn if leaving page with unsaved form
+        window.addEventListener('beforeunload', function(e){ if (!formSubmitted && (form.name.value || form.email.value || msg.value)) { e.preventDefault(); e.returnValue = ''; } });
+
+        // Clear preferences button
+        clearPrefs.addEventListener('click', function(){ localStorage.removeItem('preferredEvent'); sessionStorage.clear(); alert('Preferences cleared'); });
+
+        // Geolocation
+        findNearby.addEventListener('click', function(){
+          coordsOut.textContent = 'Locating...'; geoError.textContent = '';
+          if (!navigator.geolocation) { geoError.textContent = 'Geolocation not supported'; return; }
+          navigator.geolocation.getCurrentPosition(function(pos){
+            coordsOut.textContent = `Lat: ${pos.coords.latitude.toFixed(5)}, Lon: ${pos.coords.longitude.toFixed(5)} (accuracy ${pos.coords.accuracy}m)`;
+            console.log('Position', pos);
+          }, function(err){
+            geoError.textContent = `Error: ${err.message}`;
+            console.warn('Geolocation error', err);
+          }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+        });
+
+        // Console hints for debugging (task 10)
+        console.log('HTML5 Exercises ready — use DevTools to inspect elements and breakpoints');
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <rect width="100%" height="100%" rx="12" fill="#f0fff4"/>
+  <g transform="translate(40,28)">
+    <rect x="120" y="100" width="12" height="40" rx="6" fill="#6b4f2a"/>
+    <path d="M136 84 q24 -24 48 0 q-12 -36 -48 -36 q-36 0 -48 36 q24 -24 48 0" fill="#4caf50"/>
+    <rect x="80" y="86" width="28" height="18" rx="4" fill="#9adf9a"/>
+  </g>
+  <text x="160" y="176" font-family="Georgia" font-size="16" fill="#2e5832" text-anchor="middle">Tree Planting</text>
+</svg>

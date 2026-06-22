@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript Exercises — Community Portal</title>
+    <style>
+      body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:1rem}
+      .controls{display:flex;gap:0.5rem;align-items:center;margin-bottom:1rem}
+      .card{border:1px solid #ddd;padding:0.75rem;border-radius:6px;margin:0.5rem}
+      .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.5rem}
+      .hidden{display:none}
+      #spinner{display:none}
+    </style>
+  </head>
+  <body>
+    <h1>Community Events — JavaScript Exercises</h1>
+
+    <div class="controls">
+      <label>Filter:
+        <select id="categoryFilter">
+          <option value="all">All</option>
+          <option value="music">Music</option>
+          <option value="market">Market</option>
+          <option value="community">Community</option>
+        </select>
+      </label>
+
+      <label>Search:
+        <input id="search" placeholder="Type and press any key"> 
+      </label>
+
+      <button id="loadBtn">Load Events (mock)</button>
+      <span id="spinner">Loading...</span>
+    </div>
+
+    <div id="events" class="grid" aria-live="polite"></div>
+
+    <h2>Register (example form)</h2>
+    <form id="regForm">
+      <label>Name <input name="name" required></label>
+      <label>Email <input name="email" type="email" required></label>
+      <label>Event
+        <select name="eventId"></select>
+      </label>
+      <button id="registerSubmit">Register</button>
+    </form>
+
+    <p class="small">Open the console to see logs and debugging output.</p>
+
+    <!-- jQuery included for demo in task 14 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

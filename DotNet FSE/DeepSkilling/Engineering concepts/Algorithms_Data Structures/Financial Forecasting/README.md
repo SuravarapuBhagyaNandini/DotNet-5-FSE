@@ -1,23 +1,4 @@
-# Exercise 7 – Financial Forecasting Tool 🏦
-
-A Python implementation of a financial forecasting tool that predicts future values
-from historical data using **recursive algorithms**, with optimised alternatives
-and a full complexity analysis.
-
----
-
-## 📁 Project Structure
-
-```
-Exercise7_FinancialForecasting/
-├── financial_forecasting.py      # Core implementation
-├── test_financial_forecasting.py # Unit tests (14 tests)
-└── README.md                     # This file
-```
-
----
-
-## 📌 Step 1 – Understanding Recursion
+##  Step 1 – Understanding Recursion
 
 **Recursion** is a programming technique where a function solves a problem by
 calling itself with a *simpler* version of the same problem, until it reaches a
@@ -45,7 +26,7 @@ match for recursive thinking.
 
 ---
 
-## 📌 Step 2 – Setup: Recursive Future Value Method
+##  Step 2 – Setup: Recursive Future Value Method
 
 ```python
 def future_value_recursive(principal: float, rate: float, periods: int) -> float:
@@ -69,7 +50,7 @@ fv(10000, 0.08, 3)
 
 ---
 
-## 📌 Step 3 – Implementation: Forecast from Historical Data
+##  Step 3 – Implementation: Forecast from Historical Data
 
 ```python
 def average_growth_rate(past_values):
@@ -91,7 +72,7 @@ The tool:
 
 ---
 
-## 📌 Step 4 – Analysis & Optimisation
+## Step 4 – Analysis & Optimisation
 
 ### 4a. Time Complexity of Plain Recursion
 
@@ -255,7 +236,7 @@ Running tests...
 
 ---
 
-## 📚 Key Concepts Covered
+##  Key Concepts Covered
 
 | Concept                     | Where used                                    |
 |-----------------------------|-----------------------------------------------|

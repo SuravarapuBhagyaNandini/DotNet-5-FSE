@@ -1,0 +1,15 @@
+{
+  "name": "bootstrap5-exercises",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build-css": "sass scss/custom.scss:css/custom.css --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.70.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.10.5"
+  }
+}

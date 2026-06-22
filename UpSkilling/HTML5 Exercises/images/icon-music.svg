@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <rect width="100%" height="100%" rx="12" fill="#fff6fb"/>
+  <g transform="translate(40,28)">
+    <rect x="12" y="44" width="200" height="84" rx="8" fill="#f9e8f0"/>
+    <path d="M60 40 v-24 q0 -6 6 -6 t6 6 v48 q0 6 -6 6 t-6 -6" fill="#7b5b9b" transform="translate(0,20)"/>
+    <circle cx="140" cy="84" r="18" fill="#f06d6d"/>
+    <rect x="160" y="30" width="10" height="84" rx="4" fill="#7b5b9b"/>
+  </g>
+  <text x="160" y="176" font-family="Georgia" font-size="16" fill="#4b2b3a" text-anchor="middle">Live Music</text>
+</svg>

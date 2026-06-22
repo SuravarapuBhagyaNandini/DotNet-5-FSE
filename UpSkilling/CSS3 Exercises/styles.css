@@ -1,0 +1,145 @@
+/* -------------------------------------------------- */
+/* CSS3 Exercises - styles.css                         */
+/* External stylesheet: put reusable styles here     */
+/* -------------------------------------------------- */
+
+/* Universal reset (task 3: universal selector) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Typography import fallback note: Google Font loaded via <link> in HTML */
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #153243; /* HEX color */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header styles */
+/* Style for main banner/header */
+#mainHeader {
+  padding: 1rem 0 1.5rem 0;
+  text-align: center;
+}
+
+/* Grouping selector: style h2 and p similarly */
+h2, p {
+  line-height: 1.45;
+}
+
+/* Element selector example: style all h2 */
+h2 {
+  font-size: 1.6rem;
+  background: linear-gradient(90deg, rgba(0,123,255,0.12), rgba(0,0,0,0.01));
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+/* Class selector: event cards */
+.eventCard {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(21,50,67,0.06);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 14px rgba(21,50,67,0.06);
+  margin: 0.5rem;
+}
+
+/* Layout helpers */
+.container {
+  max-width: 960px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+.eventGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.lead { font-weight: 300; color: rgba(21,50,67,0.75); }
+
+/* CTA button (example with comment header) */
+/* Style for main CTA button */
+.cta-button {
+  display: inline-block;
+  background-color: #007BFF; /* HEX */
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.cta-button:hover { background-color: rgba(0,123,255,0.85); }
+
+/* Nav list styling (task 6) */
+.navList {
+  list-style: none; /* remove bullets */
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 0.5rem 0 1rem 0;
+}
+.navList li a { color: #153243; text-decoration: none; padding: 0.25rem 0.5rem; }
+.navList li a:link, .navList li a:visited { color: #153243; }
+.navList li a:hover { color: #007BFF; text-decoration: underline; }
+.navList li a:active { opacity: 0.8; }
+
+/* News multi-column (task 9) */
+.news {
+  background: rgba(255,255,255,0.85);
+  padding: 1rem;
+  border-radius: 6px;
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Table styling (task 7) */
+.events-table {
+  width: 100%;
+  border-collapse: collapse; /* collapse borders */
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.events-table th, .events-table td {
+  border: 1px solid rgba(21,50,67,0.08);
+  padding: 0.6rem;
+}
+.events-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.02); }
+
+/* Box model demonstration: eventCard spacing (task 8) */
+.eventCard { margin: 0.75rem 0; padding: 1rem; border: 1px solid rgba(0,0,0,0.05); }
+
+/* Outline on focus for form fields (task 8) */
+input:focus, select:focus {
+  outline: 3px solid rgba(0,123,255,0.18);
+}
+
+/* Hide vs display demo classes */
+.hidden { visibility: hidden; }
+.removed { display: none; }
+
+/* Responsive rules (task 10) */
+@media (max-width: 768px) {
+  /* stack nav items vertically */
+  .navList { flex-direction: column; align-items: center; }
+  /* reduce font sizes */
+  h2 { font-size: 1.25rem; }
+  body { font-size: 15px; }
+  .news { column-count: 1; }
+}
+
+/* Small utility */
+.meta { color: rgba(21,50,67,0.6); font-size: 0.9rem; }
+
+/* Footer */
+.site-footer { text-align: center; color: rgba(21,50,67,0.75); padding: 1rem 0; margin-top: 1.5rem; }
+
+/* End of file */

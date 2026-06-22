@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>CalcLibrary.Tests</RootNamespace>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- NUnit test framework -->
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <!-- Adapter so Visual Studio / dotnet test can discover NUnit tests -->
+    <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
+    <!-- Provides MSBuild support for running tests -->
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+  </ItemGroup>
+
+  <!-- Reference the class library under test -->
+  <ItemGroup>
+    <ProjectReference Include="..\CalcLibrary\CalcLibrary.csproj" />
+  </ItemGroup>
+</Project>

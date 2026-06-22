@@ -8,32 +8,27 @@ Files:
 - `DocumentFactory.java` — abstract factory.
 - `WordDocumentFactory.java`, `PdfDocumentFactory.java`, `ExcelDocumentFactory.java` — concrete factories.
 - `Main.java` — demo runner.
-
 How to build and run (from this folder):
 
 ```powershell
 javac *.java
 java Main
+java TestFactory
 ```
 
-Sample output:
+Sample test output (from running `TestFactory`):
 
-Created document type: Word
-Opening Word document: Word document content
-Created document type: PDF
-Opening PDF document: PDF document content
-Created document type: Excel
-Opening Excel document: Excel document content
+Created: Word
+Created: PDF
+Created: Excel
+TEST PASSED
 
 Explanation:
-This example uses an abstract `DocumentFactory` with concrete factory
-implementations (`WordDocumentFactory`, `PdfDocumentFactory`,
-`ExcelDocumentFactory`). Each concrete factory implements `createDocument()`
-to return a concrete `Document` (`WordDocument`, `PdfDocument`,
-`ExcelDocument`). The client (`Main`) works with the abstract factory to
-create documents without depending on concrete classes, following the
-Factory Method pattern.
+The test harness (`TestFactory`) uses each concrete `DocumentFactory` to
+create a `Document` and verifies the returned type matches expectations.
+If all created types match, the harness prints `TEST PASSED`.
 
 Notes:
-- This pattern helps when you need to add new document types with minimal changes to client code.
-- I can add unit tests or a simple build script if you want.
+- The `Main` class demonstrates the Factory Method pattern by creating and
+	opening each document type.
+- If you want I can also add `build.bat` to automate compilation and tests.

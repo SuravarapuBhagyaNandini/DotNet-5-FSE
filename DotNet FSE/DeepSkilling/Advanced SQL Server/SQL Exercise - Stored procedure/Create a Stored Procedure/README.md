@@ -1,24 +1,6 @@
 # Exercise 1 – Create a Stored Procedure
 
-## Goal
-Create stored procedures to:
-- **Part A** – Retrieve employee details filtered by `DepartmentID`
-- **Part B** – Insert a new employee record (`sp_InsertEmployee`)
-
----
-
-## 📁 Folder Structure
-
-```
-Exercise1_StoredProcedure/
-├── schema_and_data.sql              # Table definitions + sample data
-├── exercise1_stored_procedure.sql   # Both stored procedures + test calls
-└── README.md                        # This file
-```
-
----
-
-## 📌 Steps Followed
+##  Steps Followed
 
 ### Step 1 – Define the Stored Procedure with a DepartmentID Parameter
 
@@ -71,7 +53,7 @@ END;
 
 ---
 
-## ✅ Expected Output
+##  Expected Output
 
 ### EXEC sp_GetEmployeesByDepartment @DepartmentID = 1  (HR)
 

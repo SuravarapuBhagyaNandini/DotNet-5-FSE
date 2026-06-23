@@ -1,26 +1,6 @@
 # Exercise 5 – Return Data from a Stored Procedure
 
-## Goal
-Create stored procedures that **return the total number of employees** in a
-given department — using three approaches:
-- **Part A** – Result-set (SELECT) return
-- **Part B** – OUTPUT parameter return
-- **Part C** – All departments in a single call
-
----
-
-## 📁 Folder Structure
-
-```
-Exercise5_ReturnData/
-├── schema_and_data.sql          # Table definitions + sample data
-├── exercise5_return_data.sql    # All stored procedures + test calls
-└── README.md                    # This file
-```
-
----
-
-## 📌 Steps Followed
+##  Steps Followed
 
 ### Step 1 – Define the Stored Procedure with a DepartmentID Parameter
 
@@ -67,7 +47,7 @@ EXEC sp_GetAllDepartmentCounts;
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 1. Open **SQL Server Management Studio (SSMS)** or **Azure Data Studio**.
 2. Run `schema_and_data.sql` first to create tables and insert sample data.
@@ -75,7 +55,7 @@ EXEC sp_GetAllDepartmentCounts;
 
 ---
 
-## ✅ Expected Output
+## Expected Output
 
 ### EXEC sp_GetEmployeeCountByDepartment @DepartmentID = 1  (HR)
 
@@ -112,7 +92,7 @@ EXEC sp_GetAllDepartmentCounts;
 
 ---
 
-## 📚 Key Concepts
+## Key Concepts
 
 | Concept            | Description                                                        |
 |--------------------|--------------------------------------------------------------------|
